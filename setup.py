@@ -10,7 +10,5 @@ setup(
         'Flask-SQLAlchemy',
         'Flask-Cors',
         'Sqlite3',
-        'Pytest',
-        'Python-Dotenv',
     ],
 )
