@@ -1,0 +1,1 @@
+Por fim, o comentário no arquivo sugere adicionar mais testes para outras operações como atualização de dados (update_dados), exclusão de dados (delete_dados), entre outros, para aumentar a cobertura de testes da aplicação.
