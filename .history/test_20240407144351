@@ -20,7 +20,7 @@ def test_save_dados(client):
         "whatsapp": "123456789",
         "dia": "01/01/2022",
         "horario": "08:00",
-        "tipo_servico": "Teste"
+        "tipo_cilio": "Teste"
     }
     response = client.post('/dados', json=novo_dado)
     assert response.status_code == 201
@@ -32,7 +32,7 @@ def test_update_dados(client):
         "whatsapp": "987654321",
         "dia": "02/02/2022",
         "horario": "09:00",
-        "tipo_servico": "Teste Update"
+        "tipo_cilio": "Teste Update"
     }
     response = client.post('/dados', json=novo_dado)
     data = response.get_json()
@@ -43,7 +43,7 @@ def test_update_dados(client):
         "whatsapp": "555555555",
         "dia": "03/03/2022",
         "horario": "10:00",
-        "tipo_servico": "Teste Updated"
+        "tipo_cilio": "Teste Updated"
     }
     
     response = client.put(f'/dados/{data["id"]}', json=updated_dado)
@@ -59,7 +59,7 @@ def test_delete_dados(client):
         "whatsapp": "111111111",
         "dia": "04/04/2022",
         "horario": "11:00",
-        "tipo_servico": "Teste Delete"
+        "tipo_cilio": "Teste Delete"
     }
     response = client.post('/dados', json=novo_dado)
     data = response.get_json()
@@ -67,6 +67,8 @@ def test_delete_dados(client):
     response = client.delete(f'/dados/{data["id"]}')
     assert response.status_code == 204
 
-    # Verify that the data entry was deleted
+    # Delete the data entry created above
+    response = client.delete(f'/dados/{data["id"]}')
+    assert response.status_code == 204
     deleted_data = client.get(f'/dados/{data["id"]}')
     assert deleted_data.status_code == 404
