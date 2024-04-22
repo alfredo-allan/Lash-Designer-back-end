@@ -16,4 +16,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: server
-        path: /home/alfredo/Documentos/Controle-De-Datas-Back-End
+        path: /home/alfredo/Documentos/Lash-Designer-back-end
